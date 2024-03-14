@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+<body>
+    
+    <h1>Simulador Financeiro</h1>
+    <h2>Informe os dados abaixo:</h2>
+    Número de Hectares: <input id="input_hec" type="text"> <br>
+    Pés de verdura: <input id="input_pes" type="text">
+    <button onclick="calcular()">Ver Economia</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+    function calcular(){
+        var hectares = Number (input_hec.value)
+        var verduras = Number (input_pes.value)
+        var agua = (verduras * 40) * (75 / 100)
+        var fertilizante = hectares * 803
+        var producao = hectares * 77500
+        var tanque100 = hectares * 100.000 * 7
+        var tanque10 = hectares * 10000 * 7
+        var tanque5 = hectares * 5000
+        var tilapia = (tanque100 + tanque10 + tanque5) / 10000 * 150
+        var cubico = Number(tanque100 + tanque10 + tanque5) / 1000 * 4.02
+
+        div_mensagem.innerHTML = ` Sua economia em litros de água será de ${agua}, Você gastará R$ ${cubico.toFixed(2)} de água, <br> 
+            Sua economia em fertilizantes será de R$ ${fertilizante}, você terá uma produção de ${producao} plantas e ${tilapia.toFixed(0)} tilápias.`
+
+        // if (cubico < 10){
+           // div_mensagem.innerHTML = ` Sua economia em litros de água será de ${agua}, <br> 
+         //   Sua economia em fertilizantes será de R$ ${fertilizante}, você terá uma produção de ${producao} plantas e ${tilapias}.`
+        // }
+
+
+
+    }
+</script>
